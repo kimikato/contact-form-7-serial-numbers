@@ -1,11 +1,11 @@
 <?php
 /*
 Plugin Name: Contact Form 7 Serial Numbers
-Version: 0.4
+Version: 0.5
 Description: お問い合わせフォームプラグイン Contact Form 7 にて問い合わせ番号をふる
 Author: Kiminori KATO
 Author URI: http://www.29lab.jp/
-Text Domain: CF7SerialNumbers
+Text Domain: contact-form-7-serial-numbers
 Domain Path: /languages
 */
 
@@ -17,7 +17,7 @@ class ContactForm7_Serial_Numbers {
 
     private $options;
     const OPTION_SAVE_FILE = 'wpcf7sn_options.txt';
-    const DOMAIN = 'CF7SerialNumbers';
+    const DOMAIN = 'contact-form-7-serial-numbers';
 
     function __construct() {
         $this->options = $this->get_plugin_options();
@@ -28,9 +28,6 @@ class ContactForm7_Serial_Numbers {
         // プラグインが停止されたときに実行されるメソッドを登録
         if ( function_exists( 'register_deactivation_hook' ) )
             register_deactivation_hook( __FILE__, array( &$this, 'deactivation' ) );
-        // プラグインがアンインストールされたときに実行されるメソッドを登録
-        if ( function_exists( 'register_uninstall_hook' ) )
-            register_uninstall_hook( __FILE__, array( &$this, 'uninstall' ) );
 
         // アクションフックの設定
         add_action( 'admin_init', array( &$this, 'admin_init' ) );
@@ -65,17 +62,6 @@ class ContactForm7_Serial_Numbers {
         $wk_options = serialize( $this->options );
         if ( file_put_contents( $option_file, $wk_options ) && file_exists( $option_file ) ) {
             foreach( $this->options as $key=>$value ) {
-                delete_option( $key );
-            }
-        }
-    }
-
-    // plugin uninstall
-    function uninstall() {
-        $option_file = dirname( __FILE__ ) . '/' . self::OPTION_SAVE_FILE;
-        if ( file_exists( $option_file ) ) {
-            unlink( $option_file );
-            foreach( $this->options as $key=>$valuve ) {
                 delete_option( $key );
             }
         }
