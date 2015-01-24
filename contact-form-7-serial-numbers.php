@@ -1,8 +1,8 @@
 <?php
 /*
 Plugin Name: Contact Form 7 Serial Numbers
-Version: 0.5.1
-Description: お問い合わせフォームプラグイン Contact Form 7 にて問い合わせ番号をふる
+Version: 0.5.2
+Description: The just another serial numbering plugin for cantact for contact form 7.
 Author: Kiminori KATO
 Author URI: http://www.29lab.jp/
 Text Domain: contact-form-7-serial-numbers
