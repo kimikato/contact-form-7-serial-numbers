@@ -106,6 +106,12 @@ class ContactForm7_Serial_Numbers {
     function wpcf7sn_admin_opt_page() {
         $list_table = new NKLAB_WPCF7SN_Contact_List_Table();
         $list_table->prepare_items();
+
+        if ( is_admin() ) {
+            // jQuery 利用
+            wp_enqueue_script( 'jquery' );
+            wp_enqueue_script( self::DOMAIN, plugin_dir_url( __FILE__ ) . 'js/contact-form-7-serial-numbers.js' );
+        }
 ?>
 <div class="wrap">
     <h2><?php _e( 'Contact Form 7 Serial Numbers', self::DOMAIN ); ?></h2>
