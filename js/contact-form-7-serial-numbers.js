@@ -1,9 +1,5 @@
 jQuery(function($) {
 
-    $(document).ready(function() {
-
-    });
-
     $(':button[id^=CountModify]').on("click", function(){
         // 値の取得
         var $id = $(this).data('id');
