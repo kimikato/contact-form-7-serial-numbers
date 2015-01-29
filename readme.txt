@@ -1,9 +1,9 @@
 === Contact Form 7 Serial Numbers ===
 Contributors: Kiminori KATO
 Tags: contact form
-Requires at least: 3.9
-Tested up to: 4.0.1
-Stable tag: 0.5.2
+Requires at least: 3.9 or higher
+Tested up to: 4.1
+Stable tag: 0.6
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -27,6 +27,12 @@ You will find 'Contact Form 7 Serial Numbers' menu in your WordPress admin panel
 1. Edit Settings in the Admin panels.
 
 == Changelog ==
+
+= 0.6 - 2015/01/29 =
+* Added: Confirmed work with Contact Form 7 4.0.3, 4.1
+* Added: Confirmed work with Wordpress version 4.1
+* Added: Added the setting button that changes count number value
+* Added: Added the ShortCode 'wpcf7sn_view_count' that display the recent serial numbers
 
 = 0.5.2 - 2014/11/26 =
 * UPDATED: Updated so that the requires as least wordpress version is 3.9 or higher.
@@ -55,7 +61,7 @@ You will find 'Contact Form 7 Serial Numbers' menu in your WordPress admin panel
 
 == Upgrade Notice ==
 
-= 0.5.1 =
+= 0.6 =
 
 Nothing.
 
