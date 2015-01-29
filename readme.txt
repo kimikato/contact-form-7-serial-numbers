@@ -9,7 +9,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 == Description ==
 
-"Contact Form 7 Serial Numbers" is a extension plugin of "Contact Form 7",
+This plugin is a extension plugin of "Contact Form 7",
 that add Serial Numbers or Timestamp into the mail from forms.
 
 == Installation ==
