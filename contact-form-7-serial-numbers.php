@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Contact Form 7 Serial Numbers
-Version: 0.5.2
+Version: 0.6
 Description: The just another serial numbering plugin for cantact for contact form 7.
 Author: Kiminori KATO
 Author URI: http://www.29lab.jp/
