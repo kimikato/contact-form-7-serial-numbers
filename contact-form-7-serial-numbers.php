@@ -37,6 +37,7 @@ class ContactForm7_Serial_Numbers {
 
         // フィルターフックの設定
         add_filter( 'wpcf7_special_mail_tags', array( &$this, 'special_mail_tags' ), 10, 2 );
+        add_filter( 'wpcf7_posted_data',       array( &$this, 'add_serial_number_to_posted_data' ), 10, 1 );
 
         // ショートコードの設定
         add_shortcode( 'wpcf7sn_view_count', array( &$this, 'view_serial_number' ) );
@@ -211,6 +212,42 @@ class ContactForm7_Serial_Numbers {
             }
         }
         return $output;
+    }
+
+    // add serial number to posted data
+    function add_serial_number_to_posted_data( $posted_data ) {
+
+        if ( !empty( $posted_data ) ) {
+            // id の取得
+            $id = intval( $posted_data['_wpcf7'] );
+
+            // 通し番号設定の取得
+            $digits = ( get_option( 'nklab_wpcf7sn_digits_' . $id ) ) ? intval( get_option( 'nklab_wpcf7sn_digits_' . $id ) ) : 0;
+            $type   = ( get_option( 'nklab_wpcf7sn_type_' . $id ) ) ? intval( get_option( 'nklab_wpcf7sn_type_' . $id ) ) : 1;
+            $prefix = ( get_option( 'nklab_wpcf7sn_prefix_' . $id ) ) ? get_option( 'nklab_wpcf7sn_prefix_' . $id ) : '';
+            $count  = ( get_option( 'nklab_wpcf7sn_count_' . $id ) ) ? intval( get_option( 'nklab_wpcf7sn_count_' . $id ) ) : 0;
+
+            switch( $type ) {
+                case 1:
+                    // 番号
+                    $output = $count;
+                    if ( $digits ) {
+                        $output = sprintf( "%0" . $digits . "d", $output );
+                    }
+                    break;
+                case 2:
+                    // タイムスタンプ
+                    $output = microtime( true ) * 10000;
+                    break;
+                default:
+                    $output = '';
+            }
+            $output = $prefix . $output;
+
+            $posted_data['Serial Number'] = $output;
+        }
+
+        return $posted_data;
     }
 
     // ShortCode
