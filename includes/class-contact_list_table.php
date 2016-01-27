@@ -59,7 +59,7 @@ class NKLAB_WPCF7SN_Contact_List_Table extends WP_List_Table {
         }
         $digits = intval( get_option('nklab_wpcf7sn_digits_'));
 
-        if (($prefix = get_option('nklab_wpcf7sn_prefix_')) == false) {
+        if (($prefix = get_option('nklab_wpcf7sn_prefix_' . $item_id)) == false) {
             // 存在していないため事前に初期値を保存
             update_option('nklab_wpcf7sn_prefix_' . $item_id, '');
         }
