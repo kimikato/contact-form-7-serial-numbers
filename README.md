@@ -33,6 +33,7 @@ Edit Settings in the Admin panels.
 * Added: Confirm work with Contact Form 7 4.3.1
 * Added: Confirm work with Wordpress version 4.4.1
 * Added: Added support for Contact Form DB ( confirm work with Contact Form DB 2.9.15 )
+* Improved: Improved how to save the setting value when has added the contact forms newly
 
 ### 0.7.0 - 2015/07/07 ###
 * Added: Confirmed work with Contact Form 7 4.2.1
