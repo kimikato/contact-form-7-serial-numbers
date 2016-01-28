@@ -41,10 +41,29 @@ class NKLAB_WPCF7SN_Contact_List_Table extends WP_List_Table {
 
         $mail_tag = sprintf( '[cf7_serial_number_%1$d]', $item_id );
 
-        $type   = ( get_option('nklab_wpcf7sn_type_'   . $item_id ) ) ? intval( get_option('nklab_wpcf7sn_type_'   . $item_id ) ) : 1;
-        $count  = ( get_option('nklab_wpcf7sn_count_'  . $item_id ) ) ? intval( get_option('nklab_wpcf7sn_count_'  . $item_id ) ) : 0;
-        $ditits = ( get_option('nklab_wpcf7sn_digits_' . $item_id ) ) ? intval( get_option('nklab_wpcf7sn_digits_' . $item_id ) ) : 0;
-        $prefix = ( get_option('nklab_wpcf7sn_prefix_' . $item_id ) ) ?         get_option('nklab_wpcf7sn_prefix_' . $item_id )   : '';
+        if (($type = get_option('nklab_wpcf7sn_type_' . $item_id)) == false) {
+            // 存在していないため事前に初期値を保存
+            update_option('nklab_wpcf7sn_type_' . $item_id, 1);
+        }
+        $type = intval( get_option('nklab_wpcf7sn_type_' . $item_id) );
+
+        if (($count = get_option('nklab_wpcf7sn_count_' . $item_id)) == false) {
+            // 存在していないため事前に初期値を保存
+            update_option('nklab_wpcf7sn_count_' . $item_id, 0);
+        }
+        $count = intval( get_option('nklab_wpcf7sn_count_' . $item_id) );
+
+        if (($digits = get_option('nklab_wpcf7sn_digits_' . $item_id)) == false) {
+            // 存在していないため事前に初期値を保存
+            update_option('nklab_wpcf7sn_digits_' . $item_id, 0);
+        }
+        $digits = intval( get_option('nklab_wpcf7sn_digits_'));
+
+        if (($prefix = get_option('nklab_wpcf7sn_prefix_' . $item_id)) == false) {
+            // 存在していないため事前に初期値を保存
+            update_option('nklab_wpcf7sn_prefix_' . $item_id, '');
+        }
+        $prefix = get_option('nklab_wpcf7sn_prefix_' . $item_id, '');
 
         $output .= "\n" . '<div id="wpcf7sn_setting_' . $item_id . '" class="clearfix">'
             . '<form method="post" action="options.php">'
@@ -61,7 +80,7 @@ class NKLAB_WPCF7SN_Contact_List_Table extends WP_List_Table {
             . '        <p class="setting_body">'
             . '          <input type="radio" name="nklab_wpcf7sn_type_' . $html_encoded_id . '" value="1" ' . ( $type == 1  ? 'checked' : '' ) . ' /><label>' . __( 'Serial Number', ContactForm7_Serial_Numbers::DOMAIN ) . '</label><br />'
             . '          <span class="indent"><label>' . __( 'Now Count value', ContactForm7_Serial_Numbers::DOMAIN ) . '</label> : <input type="text" name="nklab_wpcf7sn_count_' . $html_encoded_id . '" id="nklab_wpcf7sn_count_' . $html_encoded_id . '" value="' . $count . '" size="5" maxlength="4" /> <input type="button" id="CountModify' . $html_encoded_id . '" data-id="' . $html_encoded_id . '" class="button-primary" value="' . __( 'Set', ContactForm7_Serial_Numbers::DOMAIN ) . '" /></span>'
-            . '          <span class="indent"><label>' . __( 'Number of digits', ContactForm7_Serial_Numbers::DOMAIN ) . '</label> : <input type="text" name="nklab_wpcf7sn_digits_' . $html_encoded_id . '" value="' . $ditits . '" size="2" maxlength="2" /></span>'
+            . '          <span class="indent"><label>' . __( 'Number of digits', ContactForm7_Serial_Numbers::DOMAIN ) . '</label> : <input type="text" name="nklab_wpcf7sn_digits_' . $html_encoded_id . '" value="' . $digits . '" size="2" maxlength="2" /></span>'
             . '        </p>'
             . '        <p class="setting_body">'
             . '          <input type="radio" name="nklab_wpcf7sn_type_' . $html_encoded_id . '" value="2" ' . ( $type == 2 ? 'checked' : '' ) . ' /><label>' . __( 'Timestamp (ms)', ContactForm7_Serial_Numbers::DOMAIN ) . '</label>'
