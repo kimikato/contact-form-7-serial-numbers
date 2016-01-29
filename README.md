@@ -1,11 +1,12 @@
 # Contact Form 7 Serial Numbers #
-**Contributors:** Kiminori KATO
-**Tags:** contact form
-**Requires at least: 4.2 or higher
-**Tested up to: 4.4.1
-**Stable tag:** 0.8.0
-**License:** GPLv2
-**License URI:** http://www.gnu.org/licenses/gpl-2.0.html
+
+**Contributors:** Kiminori KATO  
+**Tags:** contact form  
+**Requires at least: 4.2 or higher  
+**Tested up to: 4.4.1  
+**Stable tag:** 0.8.1  
+**License:** GPLv2  
+**License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
 
 ## Description ##
 
@@ -28,6 +29,9 @@ You will find 'Contact Form 7 Serial Numbers' menu in your WordPress admin panel
 Edit Settings in the Admin panels.
 
 ## Changelog ##
+
+### 0.8.1 - 2016/01/29 ###
+* Fixed: Fixed a bug that was saved the value of the before adding the counts
 
 ### 0.8.0 - 2016/01/29 ###
 * Added: Confirm work with Contact Form 7 4.3.1
@@ -73,6 +77,6 @@ Edit Settings in the Admin panels.
 
 ## Upgrade Notice ##
 
-### 0.8.0 ###
+### 0.8.1 ###
 
 Nothing.
