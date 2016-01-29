@@ -28,7 +28,7 @@ You will find 'Contact Form 7 Serial Numbers' menu in your WordPress admin panel
 
 == Changelog ==
 
-= 0.8.0 - 2016/01/28 =
+= 0.8.0 - 2016/01/29 =
 * Added: Confirm work with Contact Form 7 4.3.1
 * Added: Confirm work with Wordpress version 4.4.1
 * Added: Added support for Contact Form DB ( confirm work with Contact Form DB 2.9.15 )
