@@ -230,7 +230,7 @@ class ContactForm7_Serial_Numbers {
             switch( $type ) {
                 case 1:
                     // 番号
-                    $output = $count;
+                    $output = $count + 1;
                     if ( $digits ) {
                         $output = sprintf( "%0" . $digits . "d", $output );
                     }
