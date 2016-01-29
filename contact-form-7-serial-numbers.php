@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Contact Form 7 Serial Numbers
-Version: 0.8.0
+Version: 0.8.1
 Description: The just another serial numbering plugin for cantact for contact form 7.
 Author: Kiminori KATO
 Author URI: http://www.29lab.jp/
@@ -230,7 +230,7 @@ class ContactForm7_Serial_Numbers {
             switch( $type ) {
                 case 1:
                     // 番号
-                    $output = $count;
+                    $output = $count + 1;
                     if ( $digits ) {
                         $output = sprintf( "%0" . $digits . "d", $output );
                     }
